@@ -1,0 +1,48 @@
+spring:
+  application:
+    name: ms-muvz-tech
+
+  main:
+    allow-bean-definition-overriding: true
+
+  banner:
+    location: classpath:/banner.txt
+
+  h2:
+    console:
+      enabled: true
+      path: /h2
+    datasource:
+      driver-class-name: org.h2.Driver
+      url: jdbc:h2:mem:testdb
+      username: sa
+      password:
+      validationQuery: select 1
+      testOnBorrow: true
+
+    jpa:
+      hibernate:
+      hbm2ddl: create-drop
+      show-sql: true
+      properties.hibernate.format_sql: true
+      database-platform: org.hibernate.dialect.H2Dialect
+
+endpoint:
+  url: https://newsapi.org/v2
+  context.everthing: everything
+  context.top.headlines: top-headlines
+  key: 9384f09f12d14caeb58a7145b77ba166
+
+
+server:
+  port: 8080
+
+logging:
+  level:
+    org.springframework.security: TRACE
+
+jwt.user: admin
+jwt.password: admin
+
+
+secret: A31E8C6D5BF7E9A08C6D7E528A4F01B5E26C9D0F387E4A1B5C76D4E7A9081B5A3E28C76D7A08C6D5B7E9A0B4C76D8A4F012E5C6D9A

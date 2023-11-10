@@ -1,0 +1,226 @@
+{
+	"info": {
+		"_postman_id": "e786913c-221a-48e8-bffa-33bfb2ceed0d",
+		"name": "EKAN",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+		"_exporter_id": "4570313"
+	},
+	"item": [
+		{
+			"name": "http://localhost:8080/v1/muvz-tech/ekan/beneficiary/coSeqBeneficiary/1",
+			"request": {
+				"auth": {
+					"type": "bearer",
+					"bearer": [
+						{
+							"key": "token",
+							"value": "eyJhbGciOiJIUzI1NiJ9.eyJyb2xlIjpbeyJhdXRob3JpdHkiOiJST0xFX0FETUlOIn1dLCJzdWIiOiJhZG1pbiIsImlhdCI6MTY5OTEzOTY0OSwiZXhwIjoxNjk5MTM5OTQ5fQ.ZJfOmCjeVTXnzfeXYKr9xffMb3wp5gJonr879S9Xrf8",
+							"type": "string"
+						}
+					]
+				},
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "http://localhost:8080/v1/muvz-tech/ekan/beneficiary/coSeqBeneficiary/1",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"v1",
+						"muvz-tech",
+						"ekan",
+						"beneficiary",
+						"coSeqBeneficiary",
+						"1"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "http://localhost:8080/v1/muvz-tech/ekan/beneficiary/alter-beneficiary",
+			"request": {
+				"auth": {
+					"type": "bearer",
+					"bearer": [
+						{
+							"key": "token",
+							"value": "eyJhbGciOiJIUzI1NiJ9.eyJyb2xlIjpbeyJhdXRob3JpdHkiOiJST0xFX0FETUlOIn1dLCJzdWIiOiJhZG1pbiIsImlhdCI6MTY5OTEzOTY0OSwiZXhwIjoxNjk5MTM5OTQ5fQ.ZJfOmCjeVTXnzfeXYKr9xffMb3wp5gJonr879S9Xrf8",
+							"type": "string"
+						}
+					]
+				},
+				"method": "PUT",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n    \"coSeqBeneficiary\": 1,\n    \"nmName\": \"TESTE - NOVO\",\n    \"nmTelephone\": \"11940748828\",\n    \"ddBirthDate\": \"1979-05-02\",\n    \"dtCreated\": \"2023-11-04T11:18:29\",\n    \"dtEdited\": null,\n    \"documents\": [\n        {\n            \"coSeqDocumentary\": 1,\n            \"nmDescription\": \"TESTE\",\n            \"tpDocument\": \"rg\",\n            \"dtCreated\": \"2023-11-04T11:18:29\",\n            \"dtEdited\": null\n        }\n    ]\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://localhost:8080/v1/muvz-tech/ekan/beneficiary/alter-beneficiary",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"v1",
+						"muvz-tech",
+						"ekan",
+						"beneficiary",
+						"alter-beneficiary"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "http://localhost:8080/v1/muvz-tech/ekan/beneficiary/remove/coSeqBeneficiary/1",
+			"request": {
+				"auth": {
+					"type": "bearer",
+					"bearer": [
+						{
+							"key": "token",
+							"value": "eyJhbGciOiJIUzI1NiJ9.eyJyb2xlIjpbeyJhdXRob3JpdHkiOiJST0xFX0FETUlOIn1dLCJzdWIiOiJhZG1pbiIsImlhdCI6MTY5OTEzOTQ0MSwiZXhwIjoxNjk5MTM5NzQxfQ.ehz66i8FwgLnjwPjw-AMz0J_FBTY6_kutv-zYUp6CcQ",
+							"type": "string"
+						}
+					]
+				},
+				"method": "DELETE",
+				"header": [],
+				"url": {
+					"raw": "http://localhost:8080/v1/muvz-tech/ekan/beneficiary/remove/coSeqBeneficiary/1",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"v1",
+						"muvz-tech",
+						"ekan",
+						"beneficiary",
+						"remove",
+						"coSeqBeneficiary",
+						"1"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "http://localhost:8080/v1/muvz-tech/ekan/beneficiary/createBeneficiary",
+			"request": {
+				"auth": {
+					"type": "bearer",
+					"bearer": [
+						{
+							"key": "token",
+							"value": "eyJhbGciOiJIUzI1NiJ9.eyJyb2xlIjpbeyJhdXRob3JpdHkiOiJST0xFX0FETUlOIn1dLCJzdWIiOiJhZG1pbiIsImlhdCI6MTY5OTEzOTY0OSwiZXhwIjoxNjk5MTM5OTQ5fQ.ZJfOmCjeVTXnzfeXYKr9xffMb3wp5gJonr879S9Xrf8",
+							"type": "string"
+						}
+					]
+				},
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "            {\n                \n                \"nmName\": \"TEST\",\n                \"nmTelephone\": \"11940748828\",\n                \"ddBirthDate\": \"1979-05-02\",\n                \n                \"dtEdited\": null,\n                \"documents\": [                    {\n                      \n                        \"nmDescription\": null,\n                        \"tpDocument\": \"rg\",\n                        \n                        \"dtEdited\": null\n                    }\n                ]\n            }\n        \n        ",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://localhost:8080/v1/muvz-tech/ekan/beneficiary/createBeneficiary",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"v1",
+						"muvz-tech",
+						"ekan",
+						"beneficiary",
+						"createBeneficiary"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "http://localhost:8080/v1/muvz-tech/auth/login",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n    \"userName\": \"admin\", \n    \"password\": \"admin\" \n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://localhost:8080/v1/muvz-tech/auth/login",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"v1",
+						"muvz-tech",
+						"auth",
+						"login"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "http://localhost:8080/v1/muvz-tech/ekan/beneficiary",
+			"request": {
+				"auth": {
+					"type": "bearer",
+					"bearer": [
+						{
+							"key": "token",
+							"value": "eyJhbGciOiJIUzI1NiJ9.eyJyb2xlIjpbeyJhdXRob3JpdHkiOiJST0xFX0FETUlOIn1dLCJzdWIiOiJhZG1pbiIsImlhdCI6MTY5OTE0MDEzMywiZXhwIjoxNjk5MTQwNDMzfQ.EQJ3g1DS6Q-dNL70w9R0pmxSI4VtdPHzDlRwIpvLnfg",
+							"type": "string"
+						}
+					]
+				},
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "http://localhost:8080/v1/muvz-tech/ekan/beneficiary",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"v1",
+						"muvz-tech",
+						"ekan",
+						"beneficiary"
+					]
+				}
+			},
+			"response": []
+		}
+	]
+}

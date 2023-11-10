@@ -1,0 +1,495 @@
+openapi: 3.0.0
+info:
+  version: 1.0.0
+  title: Swagger MS-INTERNET-BANK
+  description: A sample API as to internet bank features in the OpenAPI 3.0 specification
+  termsOfService: http://swagger.io/terms/
+  contact:
+    name: Swagger API Team
+    email: fernandesgs10@gmail.com
+    url: http://swagger.io
+  license:
+    name: Apache 2.0
+    url: https://www.apache.org/licenses/LICENSE-2.0.html
+servers:
+  - url: https://swagger.io/
+
+paths:
+  /cliente:
+    get:
+      tags:
+        - listarCliente
+      summary: Returns all clients from the system that the user has access to
+      description: Returns all beneficiary from the system that the user has access to
+      operationId: listarCliente
+      parameters:
+        - in: query
+          name: pageNo
+          schema:
+            type: integer
+            default: 0
+          required: false
+          description: The number of items to skip before starting to collect the result set.
+        - in: query
+          name: pageSize
+          schema:
+            type: integer
+            default: 20
+          required: false
+          description: The number of items to return.
+        - in: query
+          name: sortBy
+          schema:
+            type: array
+            items:
+              type: string
+
+      responses:
+        '200':
+          description: client response
+          content:
+            application/json:
+              schema:
+                allOf:
+                  - $ref: "#/components/schemas/page"
+                  - type: object
+                    properties:
+                      results:
+                        type: array
+                        items:
+                          $ref: "#/components/schemas/pageClient"
+
+        '404':
+          description: Not Found
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/notFound'
+
+        '500':
+          description: Error
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/generalError'
+
+
+  /transacao/dtCreated/{dtCreated}:
+    get:
+      tags:
+        - listTransacaoPorDtCreated
+      summary: Returns a transaction based on a single dtCreated
+      description: Returns a transaction based on a name
+      operationId: listTransacaoPorDtCreated
+      parameters:
+        - name: dtCreated
+          in: path
+          description: dtCreated transaction
+          required: true
+          schema:
+            type: string
+            format: date
+        - in: query
+          name: pageNo
+          schema:
+            type: integer
+            default: 0
+          required: false
+          description: The number of items to skip before starting to collect the result set.
+        - in: query
+          name: pageSize
+          schema:
+            type: integer
+            default: 20
+          required: false
+          description: The number of items to return.
+        - in: query
+          name: sortBy
+          schema:
+            type: array
+            items:
+              type: string
+
+      responses:
+        '200':
+          description: transaction response
+          content:
+            application/json:
+              schema:
+                allOf:
+                  - $ref: "#/components/schemas/page"
+                  - type: object
+                    properties:
+                      results:
+                        type: array
+                        items:
+                          $ref: "#/components/schemas/pageTransaction"
+
+        '404':
+          description: Not Found
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/notFound'
+
+        '500':
+          description: Error
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/generalError'
+
+  /transacao/saque-dinheiro/numValor/{numValor}:
+    get:
+      tags:
+        - listTransacaoSaqueDinheiroPorNumValor
+      summary: Returns a transaction based on a single numValor
+      description: Returns a transaction based on a name
+      operationId: listTransacaoSaqueDinheiroPorNumValor
+      parameters:
+        - name: numValor
+          in: path
+          description: numValor transaction
+          required: true
+          schema:
+            type: number
+        - in: query
+          name: pageNo
+          schema:
+            type: integer
+            default: 0
+          required: false
+          description: The number of items to skip before starting to collect the result set.
+        - in: query
+          name: pageSize
+          schema:
+            type: integer
+            default: 20
+          required: false
+          description: The number of items to return.
+        - in: query
+          name: sortBy
+          schema:
+            type: array
+            items:
+              type: string
+
+      responses:
+        '200':
+          description: transaction response
+          content:
+            application/json:
+              schema:
+                allOf:
+                  - $ref: "#/components/schemas/page"
+                  - type: object
+                    properties:
+                      results:
+                        type: array
+                        items:
+                          $ref: "#/components/schemas/pageTransaction"
+
+        '404':
+          description: Not Found
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/notFound'
+
+        '500':
+          description: Error
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/generalError'
+
+
+  /transacao/depositar-dinheiro/numValor/{numValor}:
+    get:
+      tags:
+        - listTransacaoDepositarDinheiroPorNumValor
+      summary: Returns a transaction based on a single numValor
+      description: Returns a transaction based on a name
+      operationId: listTransacaoDepositarDinheiroPorNumValor
+      parameters:
+        - name: numValor
+          in: path
+          description: numValor transaction
+          required: true
+          schema:
+            type: number
+        - in: query
+          name: pageNo
+          schema:
+            type: integer
+            default: 0
+          required: false
+          description: The number of items to skip before starting to collect the result set.
+        - in: query
+          name: pageSize
+          schema:
+            type: integer
+            default: 20
+          required: false
+          description: The number of items to return.
+        - in: query
+          name: sortBy
+          schema:
+            type: array
+            items:
+              type: string
+
+      responses:
+        '200':
+          description: transaction response
+          content:
+            application/json:
+              schema:
+                allOf:
+                  - $ref: "#/components/schemas/page"
+                  - type: object
+                    properties:
+                      results:
+                        type: array
+                        items:
+                          $ref: "#/components/schemas/pageTransaction"
+
+        '404':
+          description: Not Found
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/notFound'
+
+        '500':
+          description: Error
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/generalError'
+
+
+  /cliente/criar-cliente:
+    post:
+      tags:
+        - criarCliente
+      summary: Add a new client
+      operationId: criarCliente
+      requestBody:
+        description: Optional description in new client
+        required: true
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/cliente'
+      responses:
+        '201':
+          description: Created
+        '500':
+          description: Error
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/generalError'
+
+
+  /transacao/sacar-dinheiro:
+    put:
+      tags:
+        - sacarDinheiro
+      summary: Sacar Dinheiro
+      operationId: sacarDinheiro
+      requestBody:
+        description: Optional description in push money
+        required: true
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/saqueDinheiro'
+      responses:
+        '201':
+          description: Created
+        '500':
+          description: Error
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/generalError'
+
+
+  /transacao/depositar-dinheiro:
+    post:
+      tags:
+        - depositarDinheiro
+      summary: Depositar Dinheiro
+      operationId: depositarDinheiro
+      requestBody:
+        description: Optional description in pull money
+        required: true
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/depositarDinheiro'
+      responses:
+        '201':
+          description: Created
+        '500':
+          description: Error
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/generalError'
+
+
+components:
+  schemas:
+    pageClient:
+      allOf:
+        - $ref: '#/components/schemas/cliente'
+        - type: object
+
+    pageTransaction:
+      allOf:
+        - $ref: '#/components/schemas/transaction'
+        - type: object
+
+    transaction:
+      type: object
+      properties:
+        client:
+          $ref: '#/components/schemas/cliente'
+        saqueDinheiro:
+          type: array
+          items:
+            $ref: '#/components/schemas/saqueDinheiro'
+        depositarDinheiro:
+          type: array
+          items:
+            $ref: '#/components/schemas/depositarDinheiro'
+
+    cliente:
+      type: object
+      required:
+        - nome
+        - numeroConta
+      properties:
+        coSeqCliente:
+          type: number
+        nome:
+          type: string
+          minItems: 1
+        planoExclusive:
+          type: boolean
+        dataNascimento:
+          type: string
+          format: date
+        saldo:
+          type: number
+        saldoAnterior:
+          type: number
+        saldoResidual:
+          type: number
+        numeroConta:
+          type: string
+          minItems: 1
+        dtCreated:
+          type: string
+        dtEdited:
+          type: string
+
+    saqueDinheiro:
+      type: object
+      required:
+        - numValor
+      properties:
+        coSeqSaque:
+          type: number
+        numValor:
+          type: number
+        cliente:
+          $ref: '#/components/schemas/cliente'
+
+
+    depositarDinheiro:
+      type: object
+      required:
+        - numValor
+      properties:
+        coSeqDeposito:
+          type: number
+        numValor:
+          type: number
+        cliente:
+          $ref: '#/components/schemas/cliente'
+
+    genericMessage:
+      type: object
+      properties:
+        message:
+          type: string
+
+    notFound:
+      type: object
+      properties:
+        schema:
+          $ref: "#/components/schemas/genericMessage"
+
+    generalError:
+      type: object
+      properties:
+        schema:
+          $ref: "#/components/schemas/genericMessage"
+
+    sort:
+      type: object
+      properties:
+        sorted:
+          type: boolean
+        unsorted:
+          type: boolean
+        empty:
+          type: number
+
+    pageable:
+      type: object
+      properties:
+        pageNumber:
+          type: number
+        pageSize:
+          type: number
+        offset:
+          type: number
+        paged:
+          type: boolean
+        unpaged:
+          type: boolean
+        sort:
+          $ref: '#/components/schemas/sort'
+
+    page:
+      type: object
+      properties:
+        totalElements:
+          type: number
+        totalPages:
+          type: number
+        last:
+          type: boolean
+        size:
+          type: number
+        number:
+          type: number
+        first:
+          type: boolean
+        numberOfElements:
+          type: number
+        empty:
+          type: boolean
+        content:
+          type: array
+          items:
+            type: object
+        pageable:
+          $ref: '#/components/schemas/pageable'
+        sort:
+          $ref: '#/components/schemas/sort'
