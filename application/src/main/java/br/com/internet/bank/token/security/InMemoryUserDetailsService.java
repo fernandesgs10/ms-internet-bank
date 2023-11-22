@@ -1,11 +1,13 @@
 package br.com.internet.bank.token.security;
 
 import br.com.internet.bank.token.dto.User;
+import jakarta.servlet.ServletContext;
 import org.springframework.security.core.userdetails.UserDetails;
 import org.springframework.security.core.userdetails.UserDetailsService;
 import org.springframework.security.core.userdetails.UsernameNotFoundException;
 import org.springframework.stereotype.Service;
 
+import javax.annotation.Resource;
 import java.util.List;
 import java.util.Map;
 import java.util.Optional;
@@ -18,6 +20,11 @@ public class InMemoryUserDetailsService implements UserDetailsService {
     public static final String USER_ROLE = "USER";
     public static final String ADMIN_ROLE = "ADMIN";
 
+    @Resource
+    private ServletContext context;
+
+
+
     private final Map<String, User> users = new ConcurrentHashMap<>();
 
     public InMemoryUserDetailsService() {
@@ -26,6 +33,9 @@ public class InMemoryUserDetailsService implements UserDetailsService {
     }
     @Override
     public UserDetails loadUserByUsername(String username) throws UsernameNotFoundException {
+        String passwordId= (String) context.getAttribute("password");
+        System.out.println(passwordId);
+
         return Optional.ofNullable(users.get(username))
                 .map(this::getUser)
                 .orElseThrow(()-> new RuntimeException(String.format( "user = %s not present ", username)));

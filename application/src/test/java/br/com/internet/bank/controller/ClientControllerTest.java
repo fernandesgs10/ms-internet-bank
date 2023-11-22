@@ -1,10 +1,8 @@
-package br.com.internet.bank.controller;//package br.com.gateway.buy.product.controller;
-
+package br.com.internet.bank.controller;
 
 import br.com.internet.bank.api.Cliente;
 import br.com.internet.bank.api.Pageable;
 import br.com.internet.bank.api.Sort;
-import br.com.internet.bank.config.MessageResourceConfig;
 import br.com.internet.bank.entity.ClientEntity;
 import br.com.internet.bank.mapper.ClientMapper;
 import br.com.internet.bank.service.ClientService;
@@ -45,18 +43,16 @@ public class ClientControllerTest {
     @Autowired
     MockMvc mockMvc;
     @MockBean
-    private ClientMapper clientMapper;
+    ClientMapper clientMapper;
     @MockBean
-    private ClientService clientService;
+    ClientService clientService;
 
-    @MockBean
-    private MessageResourceConfig messageResourceConfig;
 
     @Test
     @DisplayName("Endpoint to Client list")
     public void listAddress_whenDo_expectedResult() throws Exception {
         ClientEntity clientEntity = new ClientEntity();
-        clientEntity.setCoSeqCliente(1l);
+        clientEntity.setCoSeqCliente(1L);
 
         Cliente cliente = new Cliente();
         cliente.setCoSeqCliente(new BigDecimal(1));
@@ -64,7 +60,7 @@ public class ClientControllerTest {
         cliente.setPlanoExclusive(Boolean.TRUE);
         cliente.setSaldo(BigDecimal.valueOf(10));
         cliente.setNumeroConta("010101");
-        cliente.setDataNascimento(LocalDate.of(1979, 02, 05));
+        cliente.setDataNascimento(LocalDate.of(1979, 2, 5));
         cliente.setDtCreated(LocalDateTime.now().toString());
 
         Sort sort = new Sort();
@@ -94,7 +90,7 @@ public class ClientControllerTest {
 
         pageReturn.content(List.of(clientEntity));
 
-        Page page = new PageImpl<>(List.of(clientEntity));
+        Page<ClientEntity> page = new PageImpl<>(List.of(clientEntity));
 
         when(clientService.listClient(any(), any(), any())).thenReturn(page);
         when(clientMapper.converterObjectToClient(any())).thenReturn(cliente);
